@@ -7,6 +7,7 @@
 
 .container{
     background-color: #111;
+    overflow: hidden;
 }
 
 .salute{
@@ -221,4 +222,64 @@
 
 .githubChart:hover .active:nth-child(2n){
     background-color: #063f24;
+}
+
+.githubSm{
+    display: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+@media screen and (max-width:1024px){
+
+    .projects{
+        padding: 0 30px;
+        text-align: center;
+    }
+    .project{
+        flex-direction: column;
+        height: max-content;
+    }
+
+    .project:nth-child(2n){
+        flex-direction: column;
+    }
+
+    .phone{
+        transform: none !important;
+    }
+
+    .githubChart{
+        display: none;
+    }
+
+    .githubTitle{
+        text-align: center;
+        font-size: 10vh;
+    }
+
+    .githubSm{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        color: #555;
+        font-size: 30px;
+        text-align: center;
+    }
+
+    .logo{
+        background-color: white;
+        border-radius: 50%;
+    }
+
+    .name{
+        font-size: 5vh;
+        color: #333;
+        cursor: default;
+        text-align: center;
+        line-height: 100vh;
+    }
 }
