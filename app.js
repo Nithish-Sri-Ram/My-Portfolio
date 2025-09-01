@@ -8,6 +8,7 @@ const blackTitle = document.querySelectorAll(".blackTitle");
 const projectsTitle = document.querySelector(".projectsTitle");
 // const projectsTitle = document.querySelector(".projectsTitle");
 const phones = document.querySelectorAll(".phone");
+const laptop = document.querySelector(".laptop")
 
 for (let i = 0; i < 365; i++) {
   const list = [
@@ -47,6 +48,7 @@ window.addEventListener("scroll", () => {
   projectsTitle.style.transform = `translateY(calc(400vh - ${offsetY}px))`;
   phones[0].style.transform = `translateX(calc(500vh - ${offsetY}px))`;
   phones[1].style.transform = `translateX(calc(-600vh + ${offsetY}px))`;
+  laptop.style.transform = `translateX(calc(700vh - ${offsetY}px))`
 }); 
 
 
@@ -82,5 +84,12 @@ videoOverlay.addEventListener("click", (e) => {
 if (projectButtons.length > 1) {
   projectButtons[1].addEventListener("click", () => {
     window.open("https://voxity.org", "_blank");
+  });
+}
+
+
+if (projectButtons.length > 1) {
+  projectButtons[2].addEventListener("click", () => {
+    window.open("https://github.com/Nithish-Sri-Ram/SteeringControlledRoboCar", "_blank");
   });
 }
