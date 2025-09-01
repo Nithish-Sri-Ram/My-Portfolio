@@ -4,6 +4,7 @@ const saluteImgContainer = document.querySelector(".saluteImgContainer");
 const authorName = document.querySelector(".name");
 const jobTitleContainers = document.querySelectorAll(".jobTitleContainer");
 const jobTitles = document.querySelectorAll(".jobTitle");
+const blackTitle = document.querySelectorAll(".blackTitle");
 const projectsTitle = document.querySelector(".projectsTitle");
 // const projectsTitle = document.querySelector(".projectsTitle");
 const phones = document.querySelectorAll(".phone");
@@ -39,9 +40,47 @@ window.addEventListener("scroll", () => {
   jobTitleContainers[0].style.backgroundPositionY = `${offsetY * 0.5}px`;
   jobTitleContainers[1].style.backgroundPositionY = `${-offsetY * 0.5}px`;
   jobTitles[0].style.transform = `translateX(calc(200vh - ${offsetY}px))`;
+  // blackTitle.style.transform = `translateX(calc(200vh - ${offsetY}px))`;
   //   we are reducing by a little because it was not properly aligned and this one is starting from the end and to align it - we had to minus some
-  jobTitles[1].style.transform = `translateX(calc(-300vh + ${offsetY}px))`;
+  // jobTitles.style.transform = `translateX(calc(-300vh + ${offsetY}px))`;
+  blackTitle[0].style.transform = `translateX(calc(-300vh + ${offsetY}px))`;
   projectsTitle.style.transform = `translateY(calc(400vh - ${offsetY}px))`;
   phones[0].style.transform = `translateX(calc(500vh - ${offsetY}px))`;
   phones[1].style.transform = `translateX(calc(-600vh + ${offsetY}px))`;
 }); 
+
+
+const projectButtons = document.querySelectorAll(".projectDetail .projectButton");
+const videoOverlay = document.getElementById("videoOverlay");
+const closeVideo = document.getElementById("closeVideo");
+const projectVideo = document.getElementById("projectVideo");
+
+// Add listener to only the first project (Smart Meet AI)
+if (projectButtons.length > 0) {
+  projectButtons[0].addEventListener("click", () => {
+    videoOverlay.style.display = "flex";
+    projectVideo.play();
+  });
+}
+
+// Close overlay on button click
+closeVideo.addEventListener("click", () => {
+  projectVideo.pause();
+  projectVideo.currentTime = 0;
+  videoOverlay.style.display = "none";
+});
+
+// Close overlay when clicking outside video
+videoOverlay.addEventListener("click", (e) => {
+  if (e.target === videoOverlay) {
+    projectVideo.pause();
+    projectVideo.currentTime = 0;
+    videoOverlay.style.display = "none";
+  }
+});
+
+if (projectButtons.length > 1) {
+  projectButtons[1].addEventListener("click", () => {
+    window.open("https://voxity.org", "_blank");
+  });
+}
