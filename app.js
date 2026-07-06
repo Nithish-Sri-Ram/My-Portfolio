@@ -3,13 +3,8 @@ const saluteTextContainer = document.querySelector(".saluteTextContainer");
 const saluteImgContainer = document.querySelector(".saluteImgContainer");
 const authorName = document.querySelector(".name");
 const jobTitleContainers = document.querySelectorAll(".jobTitleContainer");
-const jobTitles = document.querySelectorAll(".jobTitle");
-const blackTitle = document.querySelectorAll(".blackTitle");
-const projectsTitle = document.querySelector(".projectsTitle");
-// const projectsTitle = document.querySelector(".projectsTitle");
-const phones = document.querySelectorAll(".phone");
-const laptop = document.querySelector(".laptop")
 
+// GITHUB CHART
 for (let i = 0; i < 365; i++) {
   const list = [
     0, 1, 2, 3, 41, 42, 43, 44, 82, 83, 123, 124, 125, 126, 164, 165, 166, 167,
@@ -32,64 +27,121 @@ for (let i = 0; i < 365; i++) {
   boxContainer.appendChild(el);
 }
 
-window.addEventListener("scroll", () => {
-  // console.log(window.scrollY);
-  let offsetY = window.scrollY;
+// SCROLL PARALLAX
+// Same slide-in flow as before, but each element's resting point is measured
+// from the document, so adding/removing sections never breaks the alignment.
+// data-slide="right" flies in from the right, "left" from the left, "up" from below.
+const slideEls = [];
+
+function measureSlides() {
+  slideEls.length = 0;
+  document.querySelectorAll("[data-slide]").forEach((el) => {
+    const section =
+      el.closest(".project") ||
+      el.closest(".jobTitleContainer") ||
+      el.closest(".projects") ||
+      el.closest(".blogs");
+    const anchor = section
+      ? section.getBoundingClientRect().top + window.scrollY
+      : 0;
+    slideEls.push({ el, dir: el.dataset.slide, anchor });
+  });
+}
+
+function applyParallax() {
+  const offsetY = window.scrollY;
+
   saluteTextContainer.style.transform = `translateY(${offsetY * 0.1}px)`;
   saluteImgContainer.style.transform = `translate(${offsetY * 0.4}px, ${offsetY * 0.7}px)`;
   authorName.style.transform = `translateX(${offsetY * 0.1}px)`;
-  jobTitleContainers[0].style.backgroundPositionY = `${offsetY * 0.5}px`;
-  jobTitleContainers[1].style.backgroundPositionY = `${-offsetY * 0.5}px`;
-  jobTitles[0].style.transform = `translateX(calc(200vh - ${offsetY}px))`;
-  // blackTitle.style.transform = `translateX(calc(200vh - ${offsetY}px))`;
-  //   we are reducing by a little because it was not properly aligned and this one is starting from the end and to align it - we had to minus some
-  // jobTitles.style.transform = `translateX(calc(-300vh + ${offsetY}px))`;
-  blackTitle[0].style.transform = `translateX(calc(-300vh + ${offsetY}px))`;
-  projectsTitle.style.transform = `translateY(calc(400vh - ${offsetY}px))`;
-  phones[0].style.transform = `translateX(calc(500vh - ${offsetY}px))`;
-  phones[1].style.transform = `translateX(calc(-600vh + ${offsetY}px))`;
-  laptop.style.transform = `translateX(calc(700vh - ${offsetY}px))`
-}); 
 
+  jobTitleContainers.forEach((c, i) => {
+    c.style.backgroundPositionY = `${(i % 2 === 0 ? 1 : -1) * offsetY * 0.5}px`;
+  });
 
-const projectButtons = document.querySelectorAll(".projectDetail .projectButton");
+  slideEls.forEach(({ el, dir, anchor }) => {
+    const d = anchor - offsetY;
+    if (dir === "right") el.style.transform = `translateX(${d}px)`;
+    else if (dir === "left") el.style.transform = `translateX(${-d}px)`;
+    else el.style.transform = `translateY(${Math.max(d, 0)}px)`;
+  });
+}
+
+let ticking = false;
+window.addEventListener(
+  "scroll",
+  () => {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        applyParallax();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  },
+  { passive: true }
+);
+
+window.addEventListener("resize", () => {
+  measureSlides();
+  applyParallax();
+});
+
+window.addEventListener("load", () => {
+  measureSlides();
+  applyParallax();
+});
+
+measureSlides();
+applyParallax();
+
+// BLOG ROWS — fade in as they enter the viewport
+const blogRows = document.querySelectorAll(".blogRow");
+const blogObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        entry.target.style.transitionDelay = `${(i % 3) * 0.12}s`;
+        entry.target.classList.add("in");
+        blogObserver.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: 0.2 }
+);
+blogRows.forEach((row) => blogObserver.observe(row));
+
+// PROJECT BUTTONS
 const videoOverlay = document.getElementById("videoOverlay");
 const closeVideo = document.getElementById("closeVideo");
 const projectVideo = document.getElementById("projectVideo");
 
-// Add listener to only the first project (Smart Meet AI)
-if (projectButtons.length > 0) {
-  projectButtons[0].addEventListener("click", () => {
-    videoOverlay.style.display = "flex";
-    projectVideo.play();
+document.querySelectorAll(".projectButton").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    if (btn.dataset.action === "video") {
+      videoOverlay.style.display = "flex";
+      projectVideo.play();
+    } else if (btn.dataset.href) {
+      window.open(btn.dataset.href, "_blank");
+    }
   });
-}
+});
 
-// Close overlay on button click
-closeVideo.addEventListener("click", () => {
+function hideOverlay() {
   projectVideo.pause();
   projectVideo.currentTime = 0;
   videoOverlay.style.display = "none";
-});
+}
 
-// Close overlay when clicking outside video
+closeVideo.addEventListener("click", hideOverlay);
+
 videoOverlay.addEventListener("click", (e) => {
-  if (e.target === videoOverlay) {
-    projectVideo.pause();
-    projectVideo.currentTime = 0;
-    videoOverlay.style.display = "none";
-  }
+  if (e.target === videoOverlay) hideOverlay();
 });
 
-if (projectButtons.length > 1) {
-  projectButtons[1].addEventListener("click", () => {
-    window.open("https://voxity.org", "_blank");
-  });
-}
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && videoOverlay.style.display === "flex") hideOverlay();
+});
 
-
-if (projectButtons.length > 1) {
-  projectButtons[2].addEventListener("click", () => {
-    window.open("https://github.com/Nithish-Sri-Ram/SteeringControlledRoboCar", "_blank");
-  });
-}
+// FOOTER YEAR
+document.getElementById("year").textContent = new Date().getFullYear();
