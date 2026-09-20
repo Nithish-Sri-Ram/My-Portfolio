@@ -31,7 +31,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap"
       rel="stylesheet"
     />
     <link rel="icon" href="./img/personLogo.png" type="image/png" />
@@ -58,10 +58,30 @@
   </head>
   <body>
     <div class="container">
-      <div class="intro">
+      <nav class="siteNav" aria-label="Primary navigation">
+        <div class="navLinks">
+          <a href="#work">Work</a>
+          <a href="#writing">Writing</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+
+      <div class="intro" id="top">
         <div class="salute">
           <div class="saluteTextContainer">
-            <h1 class="saluteText">Hi</h1>
+            <p class="heroEyebrow">Research and Development</p>
+            <h1 class="saluteText">Hi.</h1>
+            <p class="heroLead">I build thoughtful technology for the people who use it.</p>
+            <div class="currentlyBuilding" aria-label="Currently building">
+              <p>Currently building</p>
+              <a href="https://voxity.org/" target="_blank" rel="noopener">Building @ Voxity <span aria-hidden="true">↗</span></a>
+              <a href="https://campusscenes.com/" target="_blank" rel="noopener">Building @ Campus Scenes <span aria-hidden="true">↗</span></a>
+            </div>
+            <p class="heroMeta">Ex Research intern at Carnegie Mellon University</p>
+            <div class="heroActions">
+              <a class="heroPrimary" href="#work">Explore my work <span aria-hidden="true">↓</span></a>
+              <a class="heroSecondary" href="mailto:nithishsriramt@gmail.com">Start a conversation</a>
+            </div>
           </div>
           <div class="saluteImgContainer">
             <img src="./img/person.png" alt="Illustration of Nithish waving hello" class="saluteImg" />
@@ -69,7 +89,7 @@
         </div>
       </div>
       <div class="nameContainer">
-        <h2 class="name">I'm Nithish</h2>
+        <h2 class="name">I'm Nithish.</h2>
       </div>
       <div class="jobTitleContainer dark">
         <h2 class="jobTitle" data-slide="right">A Software Dev</h2>
@@ -77,12 +97,10 @@
       <div class="jobTitleContainer purple">
         <h2 class="blackTitle" data-slide="left">and Book Lover</h2>
       </div>
-      <div class="jobTitleContainer dark">
-        <h2 class="jobTitle roleTitle" data-slide="right">Researcher @ CMU</h2>
-      </div>
 
       <!-- PROJECTS  -->
-      <div class="projects">
+      <div class="projects" id="work">
+        <p class="sectionEyebrow">Selected work</p>
         <h1 class="projectsTitle" data-slide="up">Here are some of my projects</h1>
 
         <!-- hush networks -->
@@ -203,7 +221,9 @@
       </div>
 
       <!-- BLOGS -->
-      <div class="blogs">
+      <div class="blogs" id="writing">
+        <p class="sectionEyebrow">Notes &amp; essays</p>
+        <a class="researchArchiveLink" href="https://voxity.org/research/" target="_blank" rel="noopener">Research archive <span aria-hidden="true">↗</span></a>
         <h1 class="blogsTitle" data-slide="up">and I write, sometimes</h1>
         <div class="blogList">
           <a
@@ -249,7 +269,8 @@
       </div>
 
       <!-- CONTACT ME  -->
-      <div class="githubContainer">
+      <div class="githubContainer" id="contact">
+        <p class="sectionEyebrow">The next thing</p>
         <h1 class="githubTitle">Want to see all projects?</h1>
 
         <div class="githubChart">
