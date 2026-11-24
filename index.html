@@ -3,331 +3,537 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nithish Sri Ram — Software Engineer & Founder of Hush Networks</title>
+    <title>Nithish Sri Ram</title>
     <meta
       name="description"
-      content="Nithish Sri Ram is a software engineer, founder of Hush Networks (live across multiple universities) and research intern at Carnegie Mellon University. Projects in AI, speech, mobile and IoT."
+      content="Nithish Sri Ram builds Voxity, a frontier robotics company, and SimFabric, the robotics training platform. Bengaluru."
     />
     <meta name="author" content="Nithish Sri Ram" />
-    <meta name="robots" content="index, follow" />
-    <meta name="theme-color" content="#111111" />
-
+    <meta name="theme-color" content="#f1f1f1" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Nithish Sri Ram — Software Engineer & Founder of Hush Networks" />
-    <meta
-      property="og:description"
-      content="Founder of Hush Networks, research intern at Carnegie Mellon University. Projects in AI, speech, mobile and IoT."
-    />
-    <meta property="og:image" content="./img/personLogo.png" />
+    <meta property="og:title" content="Nithish Sri Ram" />
+    <meta property="og:description" content="Building the worlds robots learn in. Voxity · SimFabric · Bengaluru." />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@iimnithish" />
-    <meta name="twitter:title" content="Nithish Sri Ram — Software Engineer & Founder of Hush Networks" />
-    <meta
-      name="twitter:description"
-      content="Founder of Hush Networks, research intern at Carnegie Mellon University."
-    />
-
-    <link rel="stylesheet" href="./style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="icon" href="./img/personLogo.png" type="image/png" />
-
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Nithish Sri Ram",
-        "jobTitle": "Research Intern",
-        "worksFor": { "@type": "CollegeOrUniversity", "name": "Carnegie Mellon University" },
-        "description": "Software engineer and founder of Hush Networks, an anonymous social network for university campuses.",
-        "email": "mailto:nithishsriramt@gmail.com",
-        "sameAs": [
-          "https://github.com/Nithish-Sri-Ram",
-          "https://in.linkedin.com/in/nithish-sriram",
-          "https://twitter.com/iimnithish",
-          "https://www.instagram.com/iimnithish/",
-          "https://iimnithish.medium.com",
-          "https://hushnetworks.in"
-        ]
-      }
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+    <script>
+      /* Apply saved appearance before first paint. */
+      (function () {
+        var d = document.documentElement;
+        d.classList.add("js");
+        try {
+          var a = JSON.parse(localStorage.getItem("nsr-appearance") || "{}");
+          if (a.theme === "light" || a.theme === "dark") d.dataset.theme = a.theme;
+          if (/^(blue|orange|green|red|pink)$/.test(a.accent)) d.dataset.accent = a.accent;
+          var m = JSON.parse(localStorage.getItem("nsr-motion") || "{}");
+          if (m.mode === "paused") d.classList.add("motion-paused");
+        } catch (e) {}
+      })();
     </script>
   </head>
   <body>
-    <div class="container">
-      <nav class="siteNav" aria-label="Primary navigation">
-        <div class="navLinks">
-          <a href="#work">Work</a>
-          <a href="#writing">Writing</a>
-          <a href="#contact">Contact</a>
+    <a class="skip" href="#main">Skip to content</a>
+
+    <!-- HEADER -->
+    <header class="site-header">
+      <a class="header-name" href="#top">Nithish<br />Sri Ram</a>
+      <div class="header-actions">
+        <a class="header-link hide-mobile" href="https://github.com/Nithish-Sri-Ram" target="_blank" rel="noopener">GitHub</a>
+        <a class="header-link hide-mobile" href="mailto:nithishsriramt@gmail.com,nithish@voxity.org?subject=Hello%20Nithish">Mail</a>
+        <button class="pill pill--accent sound-toggle" type="button" aria-pressed="false">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z" /><path class="wave-a" d="M16 9.5a3.5 3.5 0 0 1 0 5" /><path class="wave-b" d="M18.5 7a7 7 0 0 1 0 10" /></svg>
+          <span>Start sound</span>
+        </button>
+
+        <details class="appearance">
+          <summary>Appearance</summary>
+          <div class="appearance-panel" role="group" aria-label="Appearance">
+            <fieldset>
+              <legend>Theme</legend>
+              <div class="seg">
+                <label><input type="radio" name="theme" value="system" checked /><span>System</span></label>
+                <label><input type="radio" name="theme" value="light" /><span>Light</span></label>
+                <label><input type="radio" name="theme" value="dark" /><span>Dark</span></label>
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend>Colour</legend>
+              <div class="chips-row">
+                <label class="swatch" style="--c: #1f55c9"><input type="radio" name="accent" value="blue" checked /><span></span><b>Blue</b></label>
+                <label class="swatch" style="--c: #e8612c"><input type="radio" name="accent" value="orange" /><span></span><b>Orange</b></label>
+                <label class="swatch" style="--c: #1f8a5b"><input type="radio" name="accent" value="green" /><span></span><b>Green</b></label>
+                <label class="swatch" style="--c: #d6334a"><input type="radio" name="accent" value="red" /><span></span><b>Red</b></label>
+                <label class="swatch" style="--c: #d1468f"><input type="radio" name="accent" value="pink" /><span></span><b>Pink</b></label>
+              </div>
+            </fieldset>
+            <button class="motion-toggle" type="button">Pause motion</button>
+          </div>
+        </details>
+
+        <button class="pill pill--ink nav-toggle" type="button" aria-expanded="false" aria-controls="site-index">Sections</button>
+      </div>
+      <div class="scroll-progress" aria-hidden="true"><span></span></div>
+    </header>
+
+    <!-- SECTIONS DRAWER -->
+    <nav class="site-index" id="site-index" aria-label="Sections" hidden>
+      <ol class="index-links">
+        <li><a href="#top"><span>00</span>Top</a></li>
+        <li><a href="#now"><span>01</span>Right now</a></li>
+        <li><a href="#voxity"><span>02</span>Voxity</a></li>
+        <li><a href="#simfabric"><span>03</span>SimFabric</a></li>
+        <li><a href="#parlens"><span>04</span>ParLens</a></li>
+        <li><a href="#github"><span>05</span>Find me on GitHub</a></li>
+        <li><a href="#experience"><span>06</span>Experience</a></li>
+        <li><a href="#earlier"><span>07</span>Earlier work</a></li>
+        <li><a href="#writing"><span>08</span>Writing</a></li>
+        <li><a href="#contact"><span>09</span>Contact</a></li>
+      </ol>
+      <div class="index-actions">
+        <button type="button" data-folds="open">Open every section</button>
+        <button type="button" data-folds="close">Fold every section</button>
+      </div>
+      <p class="index-foot mono">Bengaluru · <span class="clock">--:--</span> IST</p>
+    </nav>
+    <button class="nav-backdrop" type="button" aria-label="Close sections" tabindex="-1"></button>
+
+    <main id="main">
+      <!-- HERO -->
+      <section class="hero" id="top" aria-labelledby="hero-name">
+        <svg class="sky" viewBox="0 0 1440 260" preserveAspectRatio="xMidYMin slice" aria-hidden="true">
+          <g class="cloud cloud--a">
+            <path d="M60 120c-22 0-36-14-36-31 0-18 15-31 34-30 4-21 22-36 45-36 19 0 35 10 42 26 6-3 12-4 18-4 22 0 39 16 39 36 0 21-17 39-40 39H60z" />
+          </g>
+          <g class="cloud cloud--b">
+            <path d="M560 104c-16 0-27-10-27-23 0-14 11-23 25-23 3-15 16-26 33-26 14 0 25 7 31 18 4-2 9-3 13-3 16 0 29 12 29 27 0 16-13 30-30 30H560z" />
+          </g>
+          <g class="cloud cloud--c" transform="translate(130 -20) scale(.82)">
+            <path d="M1110 150c-26 0-42-16-42-36 0-21 18-36 39-35 5-25 26-42 53-42 22 0 41 12 49 30 7-3 14-5 21-5 26 0 46 19 46 42 0 25-20 46-47 46h-119z" />
+            <path class="cloud-line" d="M1124 160h90M1150 172h48" />
+          </g>
+          <g class="bird bird--a"><path d="M0 8c6-7 12-7 16 0 4-7 10-7 16 0" /></g>
+          <g class="bird bird--b"><path d="M0 8c6-7 12-7 16 0 4-7 10-7 16 0" /></g>
+          <g class="bird bird--c"><path d="M0 8c6-7 12-7 16 0 4-7 10-7 16 0" /></g>
+          <g class="bird bird--d"><path d="M0 8c6-7 12-7 16 0 4-7 10-7 16 0" /></g>
+        </svg>
+
+        <h1 class="hero-name" id="hero-name">
+          <span class="hero-mark" aria-hidden="true">
+            <svg viewBox="0 0 48 24"><path d="M2 12c6-12 14-12 22 0s16 12 22 0" /><path d="M2 12c6 12 14 12 22 0s16-12 22 0" /><path d="M2 12c6-6 14-6 22 0s16 6 22 0" opacity=".5" /></svg>
+          </span>
+          <span class="mask-line"><span>Nithish</span></span>
+          <span class="mask-line mask-line--indent"><span>Sri Ram</span></span>
+        </h1>
+
+        <div class="hero-copy">
+          <p class="hero-message" data-reveal>Building the worlds robots learn in.</p>
+          <p class="hero-intro" data-reveal>
+            I'm building <a href="https://www.voxity.org/" target="_blank" rel="noopener">Voxity</a>, a frontier robotics
+            company, and <a href="https://www.simfabric.dev/" target="_blank" rel="noopener">SimFabric</a>, its robotics
+            training platform. Describe a place in a sentence; get a physics-ready world to train a robot in.
+          </p>
+          <div class="hero-actions" data-reveal>
+            <a class="button button--accent" href="#voxity">See what I'm building</a>
+            <details class="hello">
+              <summary class="button button--ghost">Say hello</summary>
+              <div class="hello-panel">
+                <p class="hello-label mono">Write to me at either</p>
+                <ul class="hello-list">
+                  <li><a href="mailto:nithishsriramt@gmail.com?subject=Hello%20Nithish">nithishsriramt@gmail.com</a><button type="button" class="copy" data-copy="nithishsriramt@gmail.com">Copy</button></li>
+                  <li><a href="mailto:nithish@voxity.org?subject=Hello%20Nithish">nithish@voxity.org</a><button type="button" class="copy" data-copy="nithish@voxity.org">Copy</button></li>
+                </ul>
+                <div class="hello-actions">
+                  <a class="button button--accent" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=nithishsriramt@gmail.com,nithish@voxity.org&amp;su=Hello%20Nithish" target="_blank" rel="noopener">Write in Gmail ↗</a>
+                  <a class="button button--ghost" href="mailto:nithishsriramt@gmail.com,nithish@voxity.org?subject=Hello%20Nithish">Mail app</a>
+                </div>
+              </div>
+            </details>
+          </div>
+          <p class="hero-meta mono" data-reveal>Bengaluru · <span class="clock">--:--</span> IST</p>
         </div>
-      </nav>
+      </section>
 
-      <div class="intro" id="top">
-        <div class="salute">
-          <div class="saluteTextContainer">
-            <p class="heroEyebrow">Research and Development</p>
-            <h1 class="saluteText">Hi.</h1>
-            <p class="heroLead">I build thoughtful technology for the people who use it.</p>
-            <div class="currentlyBuilding" aria-label="Currently building">
-              <p>Currently building</p>
-              <a href="https://voxity.org/" target="_blank" rel="noopener">Building @ Voxity <span aria-hidden="true">↗</span></a>
-              <a href="https://campusscenes.com/" target="_blank" rel="noopener">Building @ Campus Scenes <span aria-hidden="true">↗</span></a>
-            </div>
-            <p class="heroMeta">Ex Research intern at Carnegie Mellon University</p>
-            <div class="heroActions">
-              <a class="heroPrimary" href="#work">Explore my work <span aria-hidden="true">↓</span></a>
-              <a class="heroSecondary" href="mailto:nithishsriramt@gmail.com">Start a conversation</a>
-            </div>
+      <!-- RIGHT NOW: the SimFabric research/docs panel -->
+      <section class="now" id="now" aria-labelledby="now-heading">
+        <div class="now-head" data-reveal>
+          <h2 id="now-heading">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2" /><path d="M8 21h8M12 17v4M7 9l3 2-3 2M12 13h4" /></svg>
+            Right now
+          </h2>
+          <p>Voxity, and its first product. Everything below starts here.</p>
+        </div>
+
+        <div class="terminal" data-reveal>
+          <i aria-hidden="true"></i><i aria-hidden="true"></i><i aria-hidden="true"></i><i aria-hidden="true"></i>
+          <div class="terminal-row mono">
+            <span>Voxity / SimFabric</span>
+            <span>Status · Public beta</span>
           </div>
-          <div class="saluteImgContainer">
-            <img src="./img/person.png" alt="Illustration of Nithish waving hello" class="saluteImg" />
+          <pre class="ascii ascii--mark" data-art="MARK" data-ripple aria-hidden="true"></pre>
+          <p class="terminal-word">SIMFABRIC</p>
+          <pre class="ascii ascii--strand" data-strand aria-hidden="true"></pre>
+          <a class="terminal-cta mono" href="https://www.simfabric.dev/" target="_blank" rel="noopener"><span aria-hidden="true">→</span> Start building worlds</a>
+          <div class="terminal-row mono">
+            <span class="terminal-cmd">&gt; simfabric --open<b aria-hidden="true"></b></span>
+            <span>simfabric.dev</span>
           </div>
         </div>
-      </div>
-      <div class="nameContainer">
-        <h2 class="name">I'm Nithish.</h2>
-      </div>
-      <div class="jobTitleContainer dark">
-        <h2 class="jobTitle" data-slide="right">A Software Dev</h2>
-      </div>
-      <div class="jobTitleContainer purple">
-        <h2 class="blackTitle" data-slide="left">and Book Lover</h2>
-      </div>
+      </section>
 
-      <!-- PROJECTS  -->
-      <div class="projects" id="work">
-        <p class="sectionEyebrow">Selected work</p>
-        <h1 class="projectsTitle" data-slide="up">Here are some of my projects</h1>
-
-        <!-- hush networks -->
-        <div class="project">
-          <div class="phone" data-slide="right">
-            <img src="./img/phone.png" alt="" />
-            <div class="phoneScreen hushEmbed">
-              <iframe
-                src="https://hushnetworks.in"
-                title="Hush Networks — live website"
-                loading="lazy"
-                class="hushFrame"
-              ></iframe>
-            </div>
+      <!-- VOXITY -->
+      <section class="fold-section" id="voxity" aria-labelledby="voxity-heading" data-open>
+        <div class="section-heading">
+          <div class="section-title">
+            <button class="section-toggle" type="button" aria-controls="voxity-body" aria-label="Toggle Voxity"></button>
+            <h2 id="voxity-heading" class="mask-line"><span>
+              <svg class="section-mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5 20.5 7v10L12 21.5 3.5 17V7z" /><path d="M3.5 7 12 11.5 20.5 7M12 11.5v10" /></svg>Voxity</span></h2>
           </div>
-          <div class="projectDetail">
-            <h1 class="projectTitle">Hush Networks</h1>
-            <p class="projectDesc">
-              I founded <b>Hush Networks</b>, an anonymous social network built
-              for university campuses — designed, engineered and shipped
-              end-to-end, and now live with real students across multiple
-              universities. From the mobile apps to the backend and moderation
-              systems, every layer of the product is mine. It's on the App
-              Store and Play Store, and growing campus by campus.
+          <p>A frontier robotics company. We build the worlds machines are trained in, and the intelligence they run on.</p>
+          <svg class="corner-clouds" viewBox="0 0 90 60" aria-hidden="true"><path d="M8 26c-5 0-8-3-8-7s4-7 8-7c1-6 6-10 12-10 5 0 9 3 11 7 2-1 3-1 5-1 6 0 10 4 10 9s-4 9-10 9H8z" /><path d="M48 54c-4 0-6-2-6-5s3-5 6-5c1-4 4-7 9-7 4 0 7 2 8 5h3c4 0 8 3 8 6s-4 6-8 6H48z" /></svg>
+        </div>
+
+        <div class="section-body" id="voxity-body">
+          <div class="lede-row" data-reveal>
+            <p class="lede">
+              A robot in the field meets clutter, uneven ground and work nobody rehearsed. That's the condition we
+              design for, not the edge case. Voxity starts with the layer robotics is missing: <em>simulation</em>,
+              the worlds a machine practises in before the real one.
             </p>
-            <div class="projectLinks">
-              <a href="https://hushnetworks.in" target="_blank" rel="noopener">Website</a>
-              <a href="https://apps.apple.com/in/app/hush-networks/id6759811580" target="_blank" rel="noopener">App Store</a>
-              <a href="https://play.google.com/store/apps/details?id=com.nsrlabs.hush" target="_blank" rel="noopener">Play Store</a>
-            </div>
-            <button class="projectButton" data-hover="hushnetworks.in" data-href="https://hushnetworks.in">
-              Enter Hush
-            </button>
-            <p class="accessNote">
-              Access is restricted to university students —
-              <a href="mailto:nithishsriramt@gmail.com?subject=Hush%20Networks%20%E2%80%94%20Demo%20Access">email me</a>
-              for demo credentials.
-            </p>
+            <a class="button button--ghost" href="https://www.voxity.org/" target="_blank" rel="noopener">voxity.org ↗</a>
           </div>
+
+          <ol class="layers">
+            <li class="layer" data-reveal>
+              <div class="layer-text">
+                <p class="mono layer-n">01 · World layer</p>
+                <h3>Simulate</h3>
+                <p>Terrain, contact, sensors and the surprising details a machine will eventually have to understand, generated in the formats robotics teams already run.</p>
+              </div>
+              <pre class="ascii ascii--art" data-art="LAYERS" data-ripple aria-hidden="true"></pre>
+            </li>
+            <li class="layer" data-reveal>
+              <div class="layer-text">
+                <p class="mono layer-n">02 · Intelligence layer</p>
+                <h3>Learn</h3>
+                <p>Training and evaluation built around what a machine actually achieved, not simply what it was told to do.</p>
+              </div>
+              <pre class="ascii ascii--art" data-art="QUAD" data-ripple aria-hidden="true"></pre>
+            </li>
+            <li class="layer" data-reveal>
+              <div class="layer-text">
+                <p class="mono layer-n">03 · Reality layer</p>
+                <h3>Deploy</h3>
+                <p>The distance between a demo and a machine that works unattended is the work. We close that distance deliberately.</p>
+              </div>
+              <pre class="ascii ascii--art" data-art="ARM" data-ripple aria-hidden="true"></pre>
+            </li>
+          </ol>
+
+          <ul class="principles">
+            <li data-reveal><span class="mono">i</span><h4>Built for the real world</h4><p>Clutter and uneven ground are where we start.</p></li>
+            <li data-reveal><span class="mono">ii</span><h4>Owned end to end</h4><p>Simulation, physics, training and evaluation, designed as one system.</p></li>
+            <li data-reveal><span class="mono">iii</span><h4>Research that ships</h4><p>Papers and benchmarks matter. Infrastructure that holds up in production matters more.</p></li>
+            <li data-reveal><span class="mono">iv</span><h4>Made for builders</h4><p>Labs, manufacturers and integrators: the layer beneath any machine that acts in the physical world.</p></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SIMFABRIC -->
+      <section class="fold-section" id="simfabric" aria-labelledby="simfabric-heading" data-open>
+        <div class="section-heading">
+          <div class="section-title">
+            <button class="section-toggle" type="button" aria-controls="simfabric-body" aria-label="Toggle SimFabric"></button>
+            <h2 id="simfabric-heading" class="mask-line"><span>
+              <svg class="section-mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9c3-5 6-5 10 0s7 5 10 0" /><path d="M2 15c3 5 6 5 10 0s7-5 10 0" /></svg>SimFabric</span></h2>
+          </div>
+          <p>The robotics training platform. Your robot needs somewhere to practise: describe it in a sentence.</p>
+          <svg class="corner-clouds" viewBox="0 0 90 60" aria-hidden="true"><path d="M8 26c-5 0-8-3-8-7s4-7 8-7c1-6 6-10 12-10 5 0 9 3 11 7 2-1 3-1 5-1 6 0 10 4 10 9s-4 9-10 9H8z" /><path d="M48 54c-4 0-6-2-6-5s3-5 6-5c1-4 4-7 9-7 4 0 7 2 8 5h3c4 0 8 3 8 6s-4 6-8 6H48z" /></svg>
         </div>
 
-        <!-- smart meet ai -->
-        <div class="project">
-          <div class="phone" data-slide="left">
-            <img src="./img/phone.png" alt="" />
-            <div class="phoneScreen">
-              <img src="./img/MoM.png" alt="Smart Meet AI app — multilingual meeting minutes generator" class="phoneApp" />
+        <div class="section-body" id="simfabric-body">
+          <div class="studio graph" data-reveal>
+            <div class="studio-side">
+              <p class="mono studio-label">Describe the world</p>
+              <p class="studio-prompt"><span class="caret">›</span><span class="studio-text" aria-live="polite"></span><b class="cursor" aria-hidden="true"></b></p>
+              <div class="studio-chips" role="group" aria-label="Pick a world">
+                <button type="button" class="chip" data-world="0">Rocky pass</button>
+                <button type="button" class="chip" data-world="1">Warehouse yard</button>
+                <button type="button" class="chip" data-world="2">Layered valley</button>
+              </div>
+              <ol class="studio-log mono" aria-live="polite"></ol>
+              <p class="mono studio-label">Exports</p>
+              <div class="studio-exports mono"><span>SDFormat</span><span>MJCF</span><span>OpenUSD</span><span>ROS 2</span></div>
             </div>
-          </div>
-          <div class="projectDetail">
-            <h1 class="projectTitle">Smart Meet AI</h1>
-            <p class="projectDesc">
-              I developed the "Multilingual AI Meeting Minutes and Summarization
-              Generator" using Flutter, which offers a meetings transcript
-              accurately and serves a big userbase. I integrated APIs into the
-              application to automate the creation of meeting minutes, enhancing
-              the process with advanced speaker identification and improved
-              transcription accuracy. This project efficiently streamlines
-              meeting documentation, providing users with accurate, real-time
-              summaries in multiple languages.
-            </p>
-            <button class="projectButton" data-hover="View Demo" data-action="video">Learn More</button>
-          </div>
-        </div>
-
-        <!-- voice bridge -->
-        <div class="project">
-          <div class="phone" data-slide="right">
-            <img src="./img/phone.png" alt="" />
-            <div class="phoneScreen">
-              <img src="./img/voice_bridge.png" alt="Voice Bridge app — real-time call transcription for deaf and mute users" class="phoneApp" />
-            </div>
-          </div>
-          <div class="projectDetail">
-            <h1 class="projectTitle">Voice Bridge</h1>
-            <p class="projectDesc">
-              I developed a mobile application designed to support deaf and mute
-              individuals, enabling real-time call transcription with seamless
-              communication during live conversations. Built using Python,
-              FastAPI, Asterisk, FreePBX, and Flutter, the app focuses on Indian
-              languages by training a custom model to accurately support
-              multiple regional languages. Integrated with VoIP systems, the app
-              delivers live call transcription with high accuracy, enhancing
-              communication efficiency. It empowers differently-abled
-              individuals by offering real-time voice-to-text and text-to-voice
-              functionalities, creating an accessible and inclusive solution for
-              effective communication.
-            </p>
-            <button class="projectButton" data-hover="Visit Voxity" data-href="https://voxity.org">Learn More</button>
-          </div>
-        </div>
-
-        <!-- steer bot -->
-        <div class="project">
-          <div class="laptop" data-slide="left">
-            <img src="./img/laptop.png" alt="" />
-            <div class="laptopScreen">
-              <img src="./img/steerBot.png" alt="Steer Bot — IoT steering-controlled RC car project" class="steerBot" />
+            <div class="studio-stage">
+              <pre class="ascii ascii--stage" aria-hidden="true"></pre>
+              <p class="studio-hud mono"><span class="studio-name">—</span><span>an illustration · the real one is at simfabric.dev</span></p>
             </div>
           </div>
-          <div class="projectDetail">
-            <h1 class="projectTitle">Steer Bot</h1>
-            <p class="projectDesc">
-              I developed <b>Steer Bot</b>, an IoT-based steering control system that
-              allows users to remotely operate an RC car as if driving a real vehicle.
-              Built using an <b>ESP8266 microcontroller</b> with Wi-Fi connectivity, it
-              enables cloud-based control from any location. The system offers smooth
-              steering, precise throttle control, and real-time responsiveness,
-              providing an interactive experience for robotics and IoT enthusiasts.
-              This project bridges the gap between hardware and remote accessibility,
-              making it both functional and innovative.
-            </p>
-            <button class="projectButton" data-hover="Open Repo" data-href="https://github.com/Nithish-Sri-Ram/SteeringControlledRoboCar">
-              Learn More
-            </button>
+
+          <ol class="steps">
+            <li data-reveal>
+              <p class="mono">01 · Build the world</p>
+              <h3>A week of scene building, in a sentence.</h3>
+              <p>No hand-placing meshes. Every object comes with its collision shape, mass and friction, and the world is checked in physics before you see it.</p>
+            </li>
+            <li data-reveal>
+              <p class="mono">02 · Train in worlds</p>
+              <h3>Train it where you already train.</h3>
+              <p>Every world downloads as SDFormat, MJCF, OpenUSD and a ROS 2 package. Gazebo, MuJoCo, or anything that reads USD.</p>
+            </li>
+            <li data-reveal>
+              <p class="mono">03 · Learn and adapt</p>
+              <h3>See. Act. Adapt. Repeat.</h3>
+              <p>The same aisle with the boxes moved, a slicker floor, a steeper ramp. Each variant is a new world, so the real world isn't its first try.</p>
+            </li>
+          </ol>
+
+          <div class="made-for">
+            <p class="mono made-for-label" data-reveal>Worlds for every kind of machine</p>
+            <ul class="robots">
+              <li data-reveal><pre class="ascii ascii--robot" data-art="DOG" data-ripple aria-hidden="true"></pre><span>Legged</span></li>
+              <li data-reveal><pre class="ascii ascii--robot" data-art="DRONE" data-ripple aria-hidden="true"></pre><span>Aerial</span></li>
+              <li data-reveal><pre class="ascii ascii--robot" data-art="ROVER" data-ripple aria-hidden="true"></pre><span>Mobile</span></li>
+              <li data-reveal><pre class="ascii ascii--robot" data-art="WIRE" data-ripple aria-hidden="true"></pre><span>Research</span></li>
+            </ul>
+          </div>
+
+          <div class="cta-row" data-reveal>
+            <a class="button button--accent" href="https://www.simfabric.dev/" target="_blank" rel="noopener">Start building, free in beta ↗</a>
+            <a class="button button--ghost" href="https://www.simfabric.dev/documentation" target="_blank" rel="noopener">Documentation</a>
+            <a class="button button--ghost" href="https://www.simfabric.dev/research" target="_blank" rel="noopener">Research</a>
           </div>
         </div>
-      </div>
+      </section>
 
-      <!-- BLOGS -->
-      <div class="blogs" id="writing">
-        <p class="sectionEyebrow">Notes &amp; essays</p>
-        <a class="researchArchiveLink" href="https://voxity.org/research/" target="_blank" rel="noopener">Research archive <span aria-hidden="true">↗</span></a>
-        <h1 class="blogsTitle" data-slide="up">and I write, sometimes</h1>
-        <div class="blogList">
-          <a
-            class="blogRow"
-            href="https://pub.nexttechlabap.in/kotlin-multi-platform-the-architects-choice-for-cross-platform-excellence"
-            target="_blank"
-          >
-            <span class="blogIndex">01</span>
-            <span class="blogBody">
-              <span class="blogTitle">Kotlin Multiplatform: The Architect's Choice for Cross-Platform Excellence</span>
-              <span class="blogSource">Next Tech Lab</span>
-            </span>
-            <span class="blogArrow">&#8594;</span>
-          </a>
-          <a
-            class="blogRow"
-            href="https://iimnithish.medium.com/traditional-ai-ml-is-not-dead-in-the-age-of-agentic-ai-216eb81092d4"
-            target="_blank"
-          >
-            <span class="blogIndex">02</span>
-            <span class="blogBody">
-              <span class="blogTitle">Traditional AI/ML Is Not Dead in the Age of Agentic AI</span>
-              <span class="blogSource">Medium</span>
-            </span>
-            <span class="blogArrow">&#8594;</span>
-          </a>
-          <a
-            class="blogRow"
-            href="https://iimnithish.medium.com/what-has-changed-since-attention-is-all-you-need-4192cb3b6c4e"
-            target="_blank"
-          >
-            <span class="blogIndex">03</span>
-            <span class="blogBody">
-              <span class="blogTitle">What Has Changed Since &ldquo;Attention Is All You Need&rdquo;</span>
-              <span class="blogSource">Medium</span>
-            </span>
-            <span class="blogArrow">&#8594;</span>
-          </a>
-        </div>
-        <p class="blogMore">
-          more on the way — <a href="https://iimnithish.medium.com" target="_blank">follow along on Medium</a>
-        </p>
-      </div>
-
-      <!-- CONTACT ME  -->
-      <div class="githubContainer" id="contact">
-        <p class="sectionEyebrow">The next thing</p>
-        <h1 class="githubTitle">Want to see all projects?</h1>
-
-        <div class="githubChart">
-          <div class="dates">
-            <span>Jan</span>
-            <span>Feb</span>
-            <span>Mar</span>
-            <span>Apr</span>
-            <span>May</span>
-            <span>Jun</span>
-            <span>Jul</span>
-            <span>Aug</span>
-            <span>Sep</span>
-            <span>Oct</span>
-            <span>Nov</span>
-            <span>Dec</span>
+      <!-- PARLENS -->
+      <section class="fold-section" id="parlens" aria-labelledby="parlens-heading">
+        <div class="section-heading">
+          <div class="section-title">
+            <button class="section-toggle" type="button" aria-controls="parlens-body" aria-label="Toggle ParLens"></button>
+            <h2 id="parlens-heading" class="mask-line"><span>
+              <svg class="section-mark" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M12 3l4.5 7.8M21 12h-9M16.5 19.8 12 12M7.5 19.8 12 12M3 12h9M7.5 4.2 12 12" /></svg>ParLens</span></h2>
           </div>
-          <a href="https://github.com/Nithish-Sri-Ram" target="_blank">
-            <div class="boxContainer"></div>
-          </a>
-          <a href="https://github.com/Nithish-Sri-Ram" target="_blank">
-            <div class="githubTitle">ON GITHUB</div>
-          </a>
+          <p>Also shipping. A private window from school, so parents see their child's day and only theirs.</p>
+          <svg class="corner-clouds" viewBox="0 0 90 60" aria-hidden="true"><path d="M8 26c-5 0-8-3-8-7s4-7 8-7c1-6 6-10 12-10 5 0 9 3 11 7 2-1 3-1 5-1 6 0 10 4 10 9s-4 9-10 9H8z" /><path d="M48 54c-4 0-6-2-6-5s3-5 6-5c1-4 4-7 9-7 4 0 7 2 8 5h3c4 0 8 3 8 6s-4 6-8 6H48z" /></svg>
         </div>
-        <div class="githubSm">
-          <div class="logo">
-            <a href="https://github.com/Nithish-Sri-Ram" target="_blank">
-              <img src="./img/github.png" alt="GitHub logo" />
-            </a>
+        <div class="section-body" id="parlens-body">
+          <div class="record">
+            <div class="record-head" data-reveal>
+              <h3>See their little world.</h3>
+              <p class="mono">iOS · Android · Genius Kids</p>
+            </div>
+            <div class="record-body" data-reveal>
+              <p class="lead">Teachers upload the day's photos. Faces are matched right on the school's device, with no paid AI service, and each family sees only their own child's moments.</p>
+              <ul class="facts">
+                <li><b>Invite-only.</b> Parents can't self-register; every photo is checked against access each time it loads.</li>
+                <li><b>Faces stay local.</b> Recognition isn't sent to a third-party AI service.</li>
+                <li><b>No ads, no tracking.</b> Free for families.</li>
+              </ul>
+              <div class="cta-row">
+                <a class="button button--accent" href="https://parlens.geniuskids.co.in/" target="_blank" rel="noopener">Visit ParLens ↗</a>
+                <a class="button button--ghost" href="https://apps.apple.com/us/app/parlens/id6837706976" target="_blank" rel="noopener">App Store</a>
+                <a class="button button--ghost" href="https://play.google.com/store/apps/details?id=com.parlens.app" target="_blank" rel="noopener">Play Store</a>
+              </div>
+            </div>
           </div>
-          <h2>Find me on Github</h2>
         </div>
+      </section>
 
-        <div class="connect">
-          <div class="socialRow">
-            <a href="https://github.com/Nithish-Sri-Ram" target="_blank">GitHub</a>
-            <a href="https://in.linkedin.com/in/nithish-sriram" target="_blank">LinkedIn</a>
-            <a href="https://twitter.com/iimnithish" target="_blank">Twitter</a>
-            <a href="https://www.instagram.com/iimnithish/" target="_blank">Instagram</a>
-            <a href="https://iimnithish.medium.com" target="_blank">Medium</a>
+      <!-- GITHUB (kept from the old site) -->
+      <section class="fold-section" id="github" aria-labelledby="github-heading" data-open>
+        <div class="section-heading">
+          <div class="section-title">
+            <button class="section-toggle" type="button" aria-controls="github-body" aria-label="Toggle Find me on GitHub"></button>
+            <h2 id="github-heading" class="mask-line"><span>
+              <svg class="section-mark" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="5" height="5" rx="1" /><rect x="10" y="3" width="5" height="5" rx="1" /><rect x="17" y="3" width="4" height="5" rx="1" /><rect x="3" y="10" width="5" height="5" rx="1" /><rect x="10" y="10" width="5" height="5" rx="1" /><rect x="3" y="17" width="5" height="4" rx="1" /></svg>Find me on GitHub</span></h2>
           </div>
-          <a class="contactLine" href="mailto:nithishsriramt@gmail.com">nithishsriramt@gmail.com</a>
-          <p class="footerLine">&copy; <span id="year">2026</span> Nithish Sri Ram &middot; Pittsburgh / India</p>
+          <p>Want to see all the projects? Everything I've built in the open lives here.</p>
+          <svg class="corner-clouds" viewBox="0 0 90 60" aria-hidden="true"><path d="M8 26c-5 0-8-3-8-7s4-7 8-7c1-6 6-10 12-10 5 0 9 3 11 7 2-1 3-1 5-1 6 0 10 4 10 9s-4 9-10 9H8z" /><path d="M48 54c-4 0-6-2-6-5s3-5 6-5c1-4 4-7 9-7 4 0 7 2 8 5h3c4 0 8 3 8 6s-4 6-8 6H48z" /></svg>
         </div>
+        <div class="section-body" id="github-body">
+          <a class="gh" href="https://github.com/Nithish-Sri-Ram" target="_blank" rel="noopener" aria-label="Nithish Sri Ram on GitHub">
+            <div class="gh-months mono" aria-hidden="true">
+              <span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span>
+              <span>Jul</span><span>Aug</span><span>Sep</span><span>Oct</span><span>Nov</span><span>Dec</span>
+            </div>
+            <div class="gh-grid" aria-hidden="true"></div>
+            <div class="gh-foot">
+              <span class="gh-legend mono" aria-hidden="true">Less <i></i><i></i><i></i><i></i> More</span>
+              <span class="gh-title">ON GITHUB <span class="gh-arrow" aria-hidden="true">↗</span></span>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- EXPERIENCE -->
+      <section class="fold-section" id="experience" aria-labelledby="experience-heading">
+        <div class="section-heading">
+          <div class="section-title">
+            <button class="section-toggle" type="button" aria-controls="experience-body" aria-label="Toggle Experience"></button>
+            <h2 id="experience-heading" class="mask-line"><span>
+              <svg class="section-mark" viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="6" r="2.5" /><circle cx="18" cy="18" r="2.5" /><path d="M8.5 6H15a3 3 0 0 1 0 6H9a3 3 0 0 0 0 6h6.5" /></svg>Experience</span></h2>
+          </div>
+          <p>Research before building.</p>
+        </div>
+        <div class="section-body" id="experience-body">
+          <ul class="rows">
+            <li class="row" data-reveal>
+              <span class="row-title">Carnegie Mellon University</span>
+              <span class="row-desc">Research Intern</span>
+              <span class="row-meta mono">Research</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- EARLIER WORK -->
+      <section class="fold-section" id="earlier" aria-labelledby="earlier-heading">
+        <div class="section-heading">
+          <div class="section-title">
+            <button class="section-toggle" type="button" aria-controls="earlier-body" aria-label="Toggle Earlier work"></button>
+            <h2 id="earlier-heading" class="mask-line"><span>
+              <svg class="section-mark" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="5" rx="1" /><path d="M5 9v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9M10 13h4" /></svg>Earlier work</span></h2>
+          </div>
+          <p>Apps, speech systems and one steering wheel, from before Voxity.</p>
+        </div>
+        <div class="section-body" id="earlier-body">
+          <div class="showcase">
+            <article class="work">
+              <div class="device device--phone" data-reveal>
+                <div class="device-screen" data-autoscroll tabindex="0" aria-label="Smart Meet AI screens, scrollable">
+                  <img src="assets/work/smart-meet.webp" alt="Smart Meet AI app: multilingual meeting minutes generator" width="360" height="5600" loading="lazy" />
+                </div>
+                <img class="device-frame" src="assets/work/phone-frame.png" alt="" width="300" height="600" />
+              </div>
+              <div class="work-text" data-reveal>
+                <p class="mono work-tags">01 · Flutter · Speech · Summaries</p>
+                <h3>Smart Meet AI</h3>
+                <p class="work-lead">A multilingual meeting minutes and summary generator, built in Flutter.</p>
+                <p>
+                  It transcribes meetings accurately and turns them into minutes automatically, with speaker
+                  identification and improved transcription accuracy. Users get accurate, real-time summaries in
+                  multiple languages, without anyone taking notes. It served a large user base.
+                </p>
+                <div class="cta-row">
+                  <button class="button button--accent" type="button" data-video="assets/multilingual-demo.mp4">Watch the demo ▶</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="work">
+              <div class="device device--phone" data-reveal>
+                <div class="device-screen" data-autoscroll tabindex="0" aria-label="Voice Bridge screens, scrollable">
+                  <img src="assets/work/voice-bridge.webp" alt="Voice Bridge app: real-time call transcription for deaf and mute users" width="360" height="4558" loading="lazy" />
+                </div>
+                <img class="device-frame" src="assets/work/phone-frame.png" alt="" width="300" height="600" />
+              </div>
+              <div class="work-text" data-reveal>
+                <p class="mono work-tags">02 · Python · FastAPI · Asterisk · FreePBX · Flutter</p>
+                <h3>Voice Bridge</h3>
+                <p class="work-lead">Live call transcription for deaf and mute users, built for Indian languages.</p>
+                <p>
+                  A mobile app that transcribes phone calls in real time, so a conversation can happen without
+                  hearing it. I trained a custom model to support multiple regional languages and integrated it with
+                  VoIP systems for live, accurate transcription. Voice-to-text and text-to-voice work both ways,
+                  making calls accessible and inclusive.
+                </p>
+                <div class="cta-row">
+                  <a class="button button--ghost" href="https://www.voxity.org/" target="_blank" rel="noopener">Learn more ↗</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="work">
+              <div class="device device--laptop" data-reveal>
+                <div class="device-screen" data-autoscroll tabindex="0" aria-label="Steer Bot photos, scrollable">
+                  <img src="assets/work/steer-bot.webp" alt="Steer Bot: steering wheel rig, the RC car's wiring, and driving it with a headset" width="600" height="1516" loading="lazy" />
+                </div>
+                <img class="device-frame" src="assets/work/laptop-frame.png" alt="" width="600" height="379" />
+              </div>
+              <div class="work-text" data-reveal>
+                <p class="mono work-tags">03 · ESP8266 · Wi-Fi · IoT</p>
+                <h3>Steer Bot</h3>
+                <p class="work-lead">Drive an RC car from anywhere, with a real steering wheel and pedals.</p>
+                <p>
+                  An IoT steering control system: an ESP8266 microcontroller on Wi-Fi takes input from a racing
+                  wheel and drives the car through the cloud, from any location. Smooth steering, precise throttle
+                  and real-time response make it feel like driving a real vehicle. Hardware, made remote.
+                </p>
+                <div class="cta-row">
+                  <a class="button button--ghost" href="https://github.com/Nithish-Sri-Ram/SteeringControlledRoboCar" target="_blank" rel="noopener">Open the repo ↗</a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <ul class="rows rows--after">
+            <li data-reveal><a class="row" href="https://hushnetworks.in" target="_blank" rel="noopener"><span class="row-title">Hush Networks</span><span class="row-desc">Anonymous social network for university campuses, on iOS and Android</span><span class="row-meta mono">Mobile ↗</span></a></li>
+            <li data-reveal><a class="row" href="https://campusscenes.com/" target="_blank" rel="noopener"><span class="row-title">Campus Scenes</span><span class="row-desc">What's happening across campus, in one place</span><span class="row-meta mono">Web ↗</span></a></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- WRITING -->
+      <section class="fold-section" id="writing" aria-labelledby="writing-heading">
+        <div class="section-heading">
+          <div class="section-title">
+            <button class="section-toggle" type="button" aria-controls="writing-body" aria-label="Toggle Writing"></button>
+            <h2 id="writing-heading" class="mask-line"><span>
+              <svg class="section-mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16v4zM13.5 6.5l4 4" /></svg>Writing</span></h2>
+          </div>
+          <p>Notes on models, machines and the tools between them.</p>
+        </div>
+        <div class="section-body" id="writing-body">
+          <ul class="rows">
+            <li data-reveal><a class="row row--two" href="https://iimnithish.medium.com/what-has-changed-since-attention-is-all-you-need-4192cb3b6c4e" target="_blank" rel="noopener"><span class="row-title">What has changed since "Attention Is All You Need"</span><span class="row-meta mono">Medium ↗</span></a></li>
+            <li data-reveal><a class="row row--two" href="https://iimnithish.medium.com/traditional-ai-ml-is-not-dead-in-the-age-of-agentic-ai-216eb81092d4" target="_blank" rel="noopener"><span class="row-title">Traditional AI/ML is not dead in the age of agentic AI</span><span class="row-meta mono">Medium ↗</span></a></li>
+            <li data-reveal><a class="row row--two" href="https://pub.nexttechlabap.in/kotlin-multi-platform-the-architects-choice-for-cross-platform-excellence" target="_blank" rel="noopener"><span class="row-title">Kotlin Multiplatform: the architect's choice for cross-platform</span><span class="row-meta mono">Next Tech Lab ↗</span></a></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section class="contact" id="contact" aria-labelledby="contact-heading">
+        <div class="section-heading section-heading--dark">
+          <div class="section-title">
+            <span class="section-toggle section-toggle--static" aria-hidden="true"></span>
+            <h2 id="contact-heading" class="mask-line"><span>
+              <svg class="section-mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 0 1-11.6 7.1L4 20l1-4.2A8 8 0 1 1 20 12z" /></svg>Tell me what you're building.</span></h2>
+          </div>
+          <p>Robots, worlds, or something that has to work in the real world. Email is fastest.</p>
+        </div>
+        <pre class="ascii ascii--contact" data-strand="wide" aria-hidden="true"></pre>
+        <div class="contact-body">
+          <div class="contact-mails">
+            <a class="contact-mail" href="mailto:nithishsriramt@gmail.com?subject=Hello%20Nithish">nithishsriramt@gmail.com <span aria-hidden="true">→</span></a>
+            <a class="contact-mail contact-mail--small" href="mailto:nithish@voxity.org?subject=Hello%20Nithish">nithish@voxity.org <span aria-hidden="true">→</span></a>
+          </div>
+          <ul class="socials">
+            <li><a href="https://github.com/Nithish-Sri-Ram" target="_blank" rel="noopener">GitHub</a></li>
+            <li><a href="https://in.linkedin.com/in/nithish-sriram" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a href="https://twitter.com/iimnithish" target="_blank" rel="noopener">Twitter</a></li>
+            <li><a href="https://www.instagram.com/iimnithish/" target="_blank" rel="noopener">Instagram</a></li>
+            <li><a href="https://iimnithish.medium.com" target="_blank" rel="noopener">Medium</a></li>
+            <li><a href="mailto:nithishsriramt@gmail.com,nithish@voxity.org?subject=Hello%20Nithish">Mail</a></li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>© <span class="year">2026</span> Nithish Sri Ram</span>
+      <span>Bengaluru</span>
+      <a href="#top">Back to top ↑</a>
+    </footer>
+
+    <div class="overlay" hidden>
+      <div class="overlay-box">
+        <button class="overlay-close" type="button">Close</button>
+        <video controls playsinline></video>
       </div>
     </div>
 
-    <div class="videoOverlay" id="videoOverlay">
-      <div class="videoContainer">
-        <video id="projectVideo" controls>
-          <source src="./vid/Multilingual_Demo.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-        <button class="closeVideo" id="closeVideo">&times;</button>
-      </div>
-    </div>
-
-    <script src="./app.js"></script>
+    <script type="module" src="/src/main.js"></script>
   </body>
 </html>

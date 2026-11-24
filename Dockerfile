@@ -1,12 +1,13 @@
+# Build the site, then serve the static output with Nginx.
+FROM node:22-alpine AS build
+WORKDIR /app
+COPY package.json package-lock.json ./
+RUN npm ci
+COPY . .
+RUN npm run build
+
 FROM nginx:alpine
-
-# Remove the default Nginx static files
 RUN rm -rf /usr/share/nginx/html/*
-
-# Copy our HTML, CSS, and JS files into the container
-COPY . /usr/share/nginx/html
-
+COPY --from=build /app/dist /usr/share/nginx/html
 EXPOSE 80
-
-# Start Nginx when the container runs
 CMD ["nginx", "-g", "daemon off;"]
